@@ -10,7 +10,7 @@ class ScraperMixin:
         # Check if every post on a targets page has already been posted by a username
         logs = root.get_target_logs(username)
 
-    def __scrape_posts_from_account(self, target: str, amount: int = 10, min_likes: int = 0, min_comments: int = 0, age: int = 1, logs: List[str] = [], allowed_media_types: List[int] = [1, 2, 8]) -> List[Media]:
+    def _scrape_posts_from_account(self, target: str, amount: int = 10, min_likes: int = 0, min_comments: int = 0, age: int = 1, logs: List[str] = [], allowed_media_types: List[int] = [1, 2, 8]) -> List[Media]:
         posts = []
         user_id = self.__username_to_user_id(target)
         max_id = True
@@ -22,7 +22,6 @@ class ScraperMixin:
                 break
             posts_chunk, max_id = self.client.user_medias_paginated_v1(
                 user_id, amount, max_id)
-            input([post.like_count for post in posts_chunk])
             for post in posts_chunk:
                 if (
                     post.like_count >= min_likes

@@ -79,7 +79,7 @@ class ReelReposter(ScraperMixin):
             if len(posts) >= self.amount:
                 posts = posts[:self.amount]
                 break
-            gathered_posts = self.__scrape_posts_from_account(
+            gathered_posts = self._scrape_posts_from_account(
                 target, self.amount, self.min_likes, self.min_comments, self.age, logs, self.allowed_media_types)
             for post in gathered_posts:
                 posts.append(post)
@@ -177,7 +177,7 @@ class ReelReposter(ScraperMixin):
         if not self.check_viral_posts:
             return 
 
-        viral_posts = self.__scrape_posts_from_account(
+        viral_posts = self._scrape_posts_from_account(
             self.client.username,
             amount=10,
             min_likes=self.viral_likes ,
