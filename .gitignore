@@ -1,0 +1,12 @@
+.env
+__pycache__
+bin
+include
+lib
+test.py
+db.sqlite3
+.DS_Store
+main.build
+accounts.txt
+messages.txt
+test.py

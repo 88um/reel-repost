@@ -1,0 +1,18 @@
+{
+    "proxy": null,
+    "age_limit_hours": 240,
+    "posting_interval_seconds":86400,
+    "allowed_media_types": [1,2],
+    "amount_to_scrape": 3,
+    "minimum_likes":1000,
+    "minimum_comments":1,
+    "captions":["Hey", "whats up","thanjs","yahaha"],
+    "extra_data":{
+        "like_and_view_counts_disabled": 0,
+        "disable_comments": 0
+    },
+    "targets": ["nba"],
+    "check_viral_posts": true,
+    "viral_likes":1,
+    "pinned_comments": ["Follow my page or else"]
+}
