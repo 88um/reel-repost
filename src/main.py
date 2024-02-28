@@ -11,19 +11,22 @@ client.login(session_id)
 
 
 def main():
-    # Collect posts and save them to folder
-    posts = client.scrape_new_posts()
-    client.save_posts_to_folder(posts)
 
-    #Fetch a saved post from our database
-    post = client.fetch_saved_post()
+    while True:
+        if not client.has_more_posts():
+            # Collect posts and save them to folder
+            posts = client.scrape_new_posts()
+            client.save_posts_to_folder(posts)
 
-    #Now upload it!
-    uploaded = client.upload_saved_post(post)
-    print("Successfully uploaded post!") if uploaded else print("Failed to upload post!")
+        #Fetch a saved post from our database
+        post = client.fetch_saved_post()
 
-    #Now check if any of my recent posts are going viral, if so - comment and tell people to follow me
-    client.check_viral()
+        #Now upload it!
+        uploaded = client.upload_saved_post(post)
+        print("Successfully uploaded post!") if uploaded else print("Failed to upload post!")
 
-    #Okay youre good for now, sleep a little
-    client.sleep()
+        #Now check if any of my recent posts are going viral, if so - comment and tell people to follow me
+        client.check_viral()
+
+        #Okay youre good for now, sleep a little
+        client.sleep()

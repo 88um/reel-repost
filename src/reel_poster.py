@@ -170,6 +170,8 @@ class ReelReposter(ScraperMixin):
         for media_file_to_remove in media_files_to_remove:
                 os.remove(media_file_to_remove)
 
+    def has_more_posts(self):
+        return len(root.get_all_media()) > 0
     
     def check_viral(self):
         if not self.check_viral_posts:
